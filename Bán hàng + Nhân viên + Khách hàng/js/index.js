@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   // Kiểm tra đăng nhập
   const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
   if (!isLoggedIn) {
@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Dừng timeout khi hover vào dropdown
     logoutDropdown.addEventListener('mouseenter', () => clearTimeout(userHoverTimeout));
-    
+
     // Đóng dropdown khi rời khỏi dropdown
     logoutDropdown.addEventListener('mouseleave', (e) => {
       if (!userProfile.contains(e.relatedTarget) && !isUserDropdownOpen) {
@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // Đóng dropdown khi click ra ngoài
-  document.addEventListener('click', function(e) {
+  document.addEventListener('click', function (e) {
     if (!e.target.closest('.has-dropdown') && !e.target.closest('.dropdown_menu')) {
       closeAllDropdowns();
     }

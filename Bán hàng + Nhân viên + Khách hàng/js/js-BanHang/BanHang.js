@@ -129,7 +129,7 @@ function formatDateInput(date) {
     return [year, month, day].join('-');
 }
 
-// Khởi tạo input ngày (trong 1 tháng)
+// Khởi tạo input ngày (trong 1 năm)
 function initializeDateInputs() {
     const startDateInput = document.getElementById('time-start-user');
     const endDateInput = document.getElementById('time-end-user');
@@ -137,9 +137,11 @@ function initializeDateInputs() {
     if (!startDateInput || !endDateInput) return;
 
     const today = new Date();
-    const startOfMonth = new Date(today.getFullYear(), today.getMonth(), 1);
+    // Lấy ngày cách đây 1 năm
+    const startOfYear = new Date(today);
+    startOfYear.setFullYear(today.getFullYear() - 1);
 
-    startDateInput.value = formatDate(startOfMonth);
+    startDateInput.value = formatDate(startOfYear);
     endDateInput.value = formatDate(today);
 }
 
